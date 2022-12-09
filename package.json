@@ -1,0 +1,42 @@
+{
+  "name": "dodo-build",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Dodo project builder action",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "pack": "ncc build",
+    "test": "jest",
+    "all": "npm run build && npm run pack && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacoco/dodo-build.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "author": "cacoco",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "minimist": ">=0.2.1",
+    "kind-of": ">=6.0.3",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.7.12",
+    "@types/shelljs": "^0.8.5",
+    "@zeit/ncc": "^0.20.5",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "node-notifier": ">=8.0.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.6.4",
+    "yargs-parser": ">=13.1.2"
+  }
+}

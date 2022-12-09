@@ -1,0 +1,55 @@
+name: 'dodo-build'
+description: 'Provide a description here'
+author: 'cacoco'
+inputs:
+  all:
+    description: 'Build all projects in the DAG list (overrides --include). Default: false.'
+    default: ''
+  clean: 
+    description: 'Delete any sbt-launch.jar and run `sbt clean` before running other sbt commands. Default: false.'
+    default: ''
+  clean-files:
+    description: 'Delete all Dodo caches, e.g., $DODO_DIRECTORY/caches, $DODO_DIRECTORY/clones, and $DODO_DIRECTORY/builds. Default: false.'
+    default: ''
+  include:
+    description: 'Include building of the given project. Default: false.'
+    default: ''
+  no-test:
+    description: 'Do not run tests (will still compile tests via test:compile). Default: false (run tests).'
+    default: ''
+  scala-version:
+    description: 'If set, do not cross-compile instead use this specific version for building all projects. Default: unset (cross-compile).'
+    default: ''
+  clone-dir:
+    description: 'Directory into which to clone remotes. Default: $HOME/.dodo/clones'
+    default: ''
+  local:
+    description: 'Build source from local filesystem instead of Github. Default: false (use Github sources).'
+    default: ''
+  branch:
+    description: 'Branch to use when building from Github sources. Default: develop.'
+    default: ''
+  proxy:
+    description: 'Base URL from which to resolve artifacts when working offline, (e.g., the sbt-launch.jar), Example: --proxy https://my.internal.company.repo/sbt-repo. NOTE: you MUST set --local and --sbt-version with this option. Default: unset.'
+    default: ''
+  publish-m2:
+    description: 'Also publish artifacts to the local ~/.m2 repository. Default: false.'
+    default: ''
+  sbt-version:
+    description: 'The sbt version to use when downloading the sbt launch jar. Default: unset.'
+    default: ''
+  dry-run:
+    description: 'Output, but do not execute the sbt build commands. If using remotes they will still be cloned. Default: false.'
+    default: ''
+  verbose:
+    description: 'Run in verbose mode. Default: false.'
+    default: ''
+  trace:
+    description: 'Run in trace mode. Note: extremely verbose. Default: false.'
+    default: ''
+  project:
+    description: 'Individual project for which to build all dependencies. Optional if "all" is specified. Required otherwise.'
+    default: ''
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
